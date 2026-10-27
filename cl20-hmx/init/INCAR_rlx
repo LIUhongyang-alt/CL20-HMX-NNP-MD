@@ -1,0 +1,26 @@
+# electronic degrees                                                            
+SYSTEM = cl20-hmx
+ISTART = 0
+ICHARG = 2
+ISPIN=1  #spin polarized
+LREAL = A                      # real space projection
+PREC  = Normal                 # chose Low only after tests
+EDIFF = 1E-5                   # do not use default (too large drift)
+ALGO = Veryfast               # recommended for MD (fall back ALGO = Fast)
+ISYM = 0                       # no symmetry                                    
+NELMIN = 4                     # minimum 4 steps per time step, avoid breaking after 2 steps
+# relaxation (do little writing to save disc space)
+ IBRION = 2                     # main molecular dynamics tag
+ NSW = 100                      # number of MD steps
+ POTIM = 0.2                      # time step of MD
+ LCHARG = .FALSE.               # no charge density written out
+ LWAVE = .FALSE.                # no wave function coefficients written out
+ ISMEAR = 0 ; SIGMA = 0.01    # Fermi smearing: 1500 K 0.086 10-3
+ ISIF = 3                       # this tag selects the ensemble in combination with the thermostat
+ NPAR = 4
+ IVDW = 12
+ ENCUT = 450 
+ EDIFFG = 0.001
+# kpoints
+KSPACING = 1
+KGAMMA = .True.

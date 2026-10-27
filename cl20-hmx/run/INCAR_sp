@@ -1,0 +1,26 @@
+# basic info                                                           
+SYSTEM = cl20hmx
+ISTART = 0
+ICHARG = 2
+ISPIN=1  
+PREC  = Normal                 # chose Low only after tests
+
+# electron relaxation
+ENCUT = 450 
+EDIFF = 1E-6                   # do not use default (too large drift)
+LREAL = A                      # real space projection
+ISMEAR = 0 
+SIGMA = 0.01    # Fermi smearing: 1500 K 0.086 10-3
+ALGO = Normal               # recommended for MD (fall back ALGO = Fast)
+ISYM = 0                       # no symmetry                                    
+NELMIN = 4                     # minimum 4 steps per time step, avoid breaking after 2 steps
+NELM = 100
+ADDGRID = .True.
+LCHARG = .FALSE.               # no charge density written out
+LWAVE = .FALSE.                # no wave function coefficients written out
+#NPAR = 4
+IVDW = 12
+
+# kpoints
+KSPACING = 1
+KGAMMA = .True.

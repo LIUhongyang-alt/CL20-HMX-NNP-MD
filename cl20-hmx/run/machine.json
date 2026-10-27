@@ -1,0 +1,59 @@
+{ "train":
+    {
+      "command": "dp",
+      "machine": {
+        "batch_type": "Shell",
+        "context_type": "local",
+        "local_root": "./",
+        "remote_root": "/home/user/jobs/LHY/2cl20-hmx/run/tmp"
+      },
+      "resources": {
+        "number_node": 1,
+        "cpu_per_node": 8,
+        "gpu_per_node": 2,
+        "group_size": 2,
+	"strategy":{"if_cuda_multi_devices":true},
+        "source_list": ["/home/user/jobs/LHY/2cl20-hmx/run/envs/deepmd.sh"]
+      }
+    },
+
+		
+ "model_devi":
+    {
+      "command": "lmp",
+      "machine": {
+        "batch_type": "Shell",
+        "context_type": "local",
+        "local_root": "./",
+        "remote_root": "/home/user/jobs/LHY/2cl20-hmx/run/tmp"
+      },
+      "resources": {
+        "number_node": 1,
+        "cpu_per_node": 8,
+        "gpu_per_node": 2,
+        "group_size": 5,
+        "source_list": ["/home/user/jobs/LHY/2cl20-hmx/run/envs/lammps.sh"]
+      }
+    },
+
+
+ "fp":
+    {
+      "command": "mpirun -np 4 vasp",
+      "machine": {
+        "batch_type": "Shell",
+        "context_type": "local",
+        "local_root": "./",
+        "remote_root": "/home/user/jobs/LHY/2cl20-hmx/run/tmp"
+      },
+      "resources": {
+        "number_node": 1,
+        "cpu_per_node": 80,
+        "gpu_per_node": 0,
+        "group_size": 8,
+        "source_list": ["/home/user/jobs/LHY/2cl20-hmx/run/envs/vasp.sh"]
+      }
+    }
+
+	
+}

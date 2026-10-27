@@ -1,0 +1,32 @@
+# electronic degrees                                                            
+SYSTEM = cl20-hmx
+ISTART = 0
+ICHARG = 2
+ISPIN=1  #spin polarized
+LREAL = A                      # real space projection
+PREC  = Normal                 # chose Low only after tests
+EDIFF = 1E-5                   # do not use default (too large drift)
+ISMEAR = 0 ; SIGMA = 0.01    # Fermi smearing: 1500 K 0.086 10-3
+ALGO = Veryfast               # recommended for MD (fall back ALGO = Fast)
+ISYM = 0                       # no symmetry                                    
+NELMIN = 4                     # minimum 4 steps per time step, avoid breaking after 2 steps
+# MD (do little writing to save disc space)
+ IBRION = 0                     # main molecular dynamics tag
+ NSW = 500                      # number of MD steps
+ POTIM = 1                      # time step of MD
+ NWRITE = 1                     # controls output
+ NBLOCK = 1                    # after ten steps pair correlation function is written out
+ LCHARG = .FALSE.               # no charge density written out
+ LWAVE = .FALSE.                # no wave function coefficients written out
+ TEBEG = 3000                     # starting temperature for MD
+ TEEND = 3000                     # end temperature for MD
+# canonic (Nose) MD with XDATCAR updated every 10 steps
+ MDALGO = 2                     # switch to select thermostat
+ SMASS =  3                     # Nose mass
+ ISIF = 2                       # this tag selects the ensemble in combination with the thermostat
+ NPAR = 4
+ IVDW = 12
+ ENCUT = 450 
+# kpoints
+KSPACING = 1
+KGAMMA = .True.

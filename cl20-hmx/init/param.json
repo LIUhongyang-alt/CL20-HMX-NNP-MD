@@ -1,0 +1,21 @@
+{
+	
+    "stages":           [4],
+    "cell_type":	"diamond",
+    "super_cell":	[1, 1, 1],
+    "elements":		["C","H","N","O"],
+    "from_poscar":	true,
+    "from_poscar_path":	"./POSCAR",
+    "potcars":		["./POTCARs/POTCAR_C", "./POTCARs/POTCAR_H","./POTCARs/POTCAR_N","./POTCARs/POTCAR_O"],
+    "relax_incar": 	"./INCAR_rlx",
+    "md_incar" : 	"./INCAR_md",
+    "scale":		[1.00],
+    "skip_relax":	false,
+    "pert_numb":	10,
+    "md_nstep" : 	500,
+    "pert_box":		0.03,
+    "pert_atom":	0.01,
+    "coll_ndata":	5000,
+    "type_map":		["C","H","N","O"],
+    "_comment":		"that's all"
+}

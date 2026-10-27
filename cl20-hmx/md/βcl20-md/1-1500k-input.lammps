@@ -1,0 +1,25 @@
+
+units           metal
+boundary        p p p
+atom_style      atomic
+
+neighbor        1.0 bin
+
+read_data       ../βcl20.lmp
+mass            1 12.010700
+mass            2 1.007940
+mass            3 14.006700
+mass            4 15.999400
+pair_style      deepmd ../frozen_model.pb 
+pair_coeff      * *
+
+thermo_style    custom step temp pe ke etotal press vol lx ly lz xy xz yz
+thermo          500
+
+dump            1 all custom 100 dump.lammpstrj id type x y z fx fy fz
+
+velocity        all create 1500 463828
+fix             1 all nvt temp 1500 1500 0.01
+
+timestep        0.000100
+run             1000000
